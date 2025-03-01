@@ -1,5 +1,4 @@
 import pandas as pd
-print(pd.__version__)
 
 tabela_vendas = pd.read_excel('Vendas.xlsx')
 
@@ -9,8 +8,15 @@ print(tabela_vendas)
 
 # faturamento por loja
 faturamento = tabela_vendas.groupby('ID Loja')['Valor Final'].sum()
-print(faturamento)
+faturamento_df = faturamento.to_frame()
+print(faturamento_df)
 
 # quantidade de produtos vendidos por loja
 quantidade = tabela_vendas.groupby('ID Loja')['Quantidade'].sum()
-print(quantidade)
+quantidade_df = quantidade.to_frame()
+print(quantidade_df)
+
+print('-' * 50)
+# ticket médio por produto em cada loja
+ticket_medio = (faturamento / quantidade).to_frame(name="Ticket Médio")
+print(ticket_medio)
