@@ -48,4 +48,4 @@ Make sure you have installed:
 
 ## Author
 
-Gildácio
+Gildácio Lopes
