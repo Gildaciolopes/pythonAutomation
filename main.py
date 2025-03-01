@@ -8,5 +8,9 @@ print(tabela_vendas)
 
 
 # faturamento por loja
-faturamento = tabela_vendas['ID Loja', 'Valor Final'].grtoupby('ID Loja').sum()
+faturamento = tabela_vendas.groupby('ID Loja')['Valor Final'].sum()
 print(faturamento)
+
+# quantidade de produtos vendidos por loja
+quantidade = tabela_vendas.groupby('ID Loja')['Quantidade'].sum()
+print(quantidade)
